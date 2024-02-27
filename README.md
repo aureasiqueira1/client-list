@@ -17,7 +17,7 @@ Este é um projeto Full Stack em Typescript que utiliza o React para o frontend,
 - TypeScript
 - NestJs
 - TypeORM
-- MySQL
+- PostgreSQL
 - Swagger
   
 
