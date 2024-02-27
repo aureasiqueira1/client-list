@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+
 import { CreateClienteDto } from './dto/create-cliente.dto';
 import { UpdateClienteDto } from './dto/update-cliente.dto';
 import { Cliente } from './entities/cliente.entity';
@@ -8,8 +10,8 @@ import { Cliente } from './entities/cliente.entity';
 @Injectable()
 export class ClienteService {
   constructor(
-    @Inject('CLIENTE_REPOSITORY')
-    private clienteRepository: Repository<Cliente>,
+    @InjectRepository(Cliente)
+    private readonly clienteRepository: Repository<Cliente>,
   ) {}
 
   create(createClienteDto: CreateClienteDto) {
